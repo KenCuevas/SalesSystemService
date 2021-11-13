@@ -19,11 +19,22 @@ public class UnidadesMedidas {
     private boolean estado;
 
     //Mapeo a base de datos
-    @ManyToMany(mappedBy = "unidades_medidas")
+    @ManyToMany(mappedBy = "unidadesMedidas")
     @JsonIgnore
     private List<Articles>articles;
 
+    @OneToOne(mappedBy = "unidadesMedidas")
+    private OrdenCompra ordenCompra;
+
     public UnidadesMedidas() {
+    }
+
+    public OrdenCompra getOrdenCompra() {
+        return ordenCompra;
+    }
+
+    public void setOrdenCompra(OrdenCompra ordenCompra) {
+        this.ordenCompra = ordenCompra;
     }
 
     public List<Articles> getArticles() {

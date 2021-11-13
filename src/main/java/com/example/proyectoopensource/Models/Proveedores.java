@@ -1,8 +1,11 @@
 package com.example.proyectoopensource.Models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 
 @Entity(name = "proveedores")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Proveedores {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

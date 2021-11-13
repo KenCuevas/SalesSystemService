@@ -15,10 +15,11 @@ public class OrdeCompraController {
     @Autowired
     private OrdenCompraRepository repository;
 
-    @GetMapping("/Compras/all")
-    List<OrdenCompra>getAll(){
+    @GetMapping("/compras/all")
+    public @ResponseBody Iterable<OrdenCompra>list(){
         return repository.findAll();
     }
+
     @PostMapping("/compras/add")
     public OrdenCompra createOrden(@RequestBody final  OrdenCompra ordenCompra){
         return repository.save(ordenCompra);

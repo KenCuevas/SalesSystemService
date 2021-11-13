@@ -1,6 +1,7 @@
 package com.example.proyectoopensource.Models;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
@@ -27,8 +28,12 @@ public class Articles {
     private int disponibilidadArticulo;
     private boolean estado;
 
+    @OneToOne(mappedBy = "articles")
+    private OrdenCompra ordenCompra;
+
     public Articles() {
     }
+
 
     public List<UnidadesMedidas> getUnidadesMedidas() {
         return unidadesMedidas;
