@@ -16,21 +16,26 @@ public class Articles {
     private String description;
     private String brand;
 
-    //Referencia a la relacion de base de datos
-    @JsonBackReference
-    @OneToMany(targetEntity = UnidadesMedidas.class)
-    private List UnidadesList;
-
+    //Mapeo a la base de datos
+    @ManyToMany
+    @JoinTable(
+            name = "articles_medidas",
+            joinColumns = @JoinColumn(name = "id_article"),
+            inverseJoinColumns = @JoinColumn(name = "unidades_medida_id"))
+    private List<UnidadesMedidas> unidadesMedidas;
     @Column(name = "disponiblidad_articulo")
     private int disponibilidadArticulo;
     private boolean estado;
 
-    public List getUnidadesList() {
-        return UnidadesList;
+    public Articles() {
     }
 
-    public void setUnidadesList(List unidadesList) {
-        UnidadesList = unidadesList;
+    public List<UnidadesMedidas> getUnidadesMedidas() {
+        return unidadesMedidas;
+    }
+
+    public void setUnidadesMedidas(List<UnidadesMedidas> unidadesMedidas) {
+        this.unidadesMedidas = unidadesMedidas;
     }
 
     public Long getId() {
