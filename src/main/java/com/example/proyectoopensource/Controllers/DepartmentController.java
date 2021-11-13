@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@CrossOrigin("*")
 @RequestMapping("/api/v1")
 public class DepartmentController {
     @Autowired
@@ -19,6 +20,8 @@ public class DepartmentController {
     List<Departamentos>getAll(){
         return repository.findAll();
     }
+
+
     @PostMapping("/departamentos/add")
     public Departamentos createDepartment(@RequestBody final Departamentos departamentos){
         return repository.save(departamentos);
