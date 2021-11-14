@@ -29,7 +29,7 @@ public class Articles {
     private int disponibilidadArticulo;
     private boolean estado;
 
-    @JsonManagedReference
+    @JsonBackReference
     @OneToOne(mappedBy = "articles")
     private OrdenCompra ordenCompra;
 

@@ -1,5 +1,6 @@
 package com.example.proyectoopensource.Models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
@@ -16,12 +17,12 @@ public class UnidadesMedidas {
     private String descripcion;
     private boolean estado;
 
-    @JsonManagedReference
+    @JsonBackReference
     //Mapeo a base de datos
     @ManyToMany(mappedBy = "unidadesMedidas")
     private List<Articles>articles;
 
-    @JsonManagedReference
+    @JsonBackReference
     @OneToOne(mappedBy = "unidadesMedidas")
     private OrdenCompra ordenCompra;
 
