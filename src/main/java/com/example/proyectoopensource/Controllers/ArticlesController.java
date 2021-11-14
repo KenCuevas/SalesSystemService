@@ -21,7 +21,7 @@ public class ArticlesController {
         return repository.findAll();
     }
     @PostMapping("/articles/add")
-    public Articles createArticle(@RequestBody final Articles articles){
+    public Articles createArticle(@RequestBody Articles articles){
         return repository.save(articles);
     }
     @GetMapping(path = "/articles/search/{id}")

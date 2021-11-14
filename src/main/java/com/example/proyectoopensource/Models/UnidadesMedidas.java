@@ -2,7 +2,6 @@ package com.example.proyectoopensource.Models;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
 import java.util.List;
@@ -16,34 +15,34 @@ public class UnidadesMedidas {
     private Long id;
     private String descripcion;
     private boolean estado;
+    //Se crea la relacion con la tabla Unidades medidas
+//    @JsonBackReference
+//    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "unidadesMedidas")
+//    private List<Articles>articles;
 
-    @JsonBackReference
-    //Mapeo a base de datos
-    @ManyToMany(mappedBy = "unidadesMedidas")
-    private List<Articles>articles;
-
-    @JsonBackReference
-    @OneToOne(mappedBy = "unidadesMedidas")
-    private OrdenCompra ordenCompra;
+    //Se crea la relacion con la tabla Orden de compras
+//    @JsonBackReference
+//    @OneToOne(mappedBy = "unidadesMedidas")
+//    private OrdenCompra ordenCompra;
 
     public UnidadesMedidas() {
     }
 
-    public OrdenCompra getOrdenCompra() {
-        return ordenCompra;
-    }
+//    public OrdenCompra getOrdenCompra() {
+//        return ordenCompra;
+//    }
+//
+//    public void setOrdenCompra(OrdenCompra ordenCompra) {
+//        this.ordenCompra = ordenCompra;
+//    }
 
-    public void setOrdenCompra(OrdenCompra ordenCompra) {
-        this.ordenCompra = ordenCompra;
-    }
-
-    public List<Articles> getArticles() {
-        return articles;
-    }
-
-    public void setArticles(List<Articles> articles) {
-        this.articles = articles;
-    }
+//    public List<Articles> getArticles() {
+//        return articles;
+//    }
+//
+//    public void setArticles(List<Articles> articles) {
+//        this.articles = articles;
+//    }
 
     public Long getId() {
         return id;

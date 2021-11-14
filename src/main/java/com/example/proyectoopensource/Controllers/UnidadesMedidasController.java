@@ -22,8 +22,8 @@ public class UnidadesMedidasController {
     }
 
     @PostMapping("/unidades/add")
-    public UnidadesMedidas createUnidades(@RequestBody final UnidadesMedidas unidadesMedidas){
-        return repository.save(unidadesMedidas);
+    UnidadesMedidas createUnidades(@RequestBody UnidadesMedidas unidadesMedidas){
+        return repository.saveAndFlush(unidadesMedidas);
     }
 
     @GetMapping(path = "/unidades/search/{id}")
