@@ -1,7 +1,6 @@
 package com.example.proyectoopensource.Models;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
@@ -18,6 +17,7 @@ public class Articles {
     private String brand;
 
     //Mapeo a la base de datos
+    @JsonBackReference
     @ManyToMany
     @JoinTable(
             name = "articles_medidas",
@@ -28,6 +28,7 @@ public class Articles {
     private int disponibilidadArticulo;
     private boolean estado;
 
+    @JsonBackReference
     @OneToOne(mappedBy = "articles")
     private OrdenCompra ordenCompra;
 

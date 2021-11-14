@@ -1,13 +1,13 @@
 package com.example.proyectoopensource.Models;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
 import java.math.BigInteger;
 import java.time.LocalDate;
-import java.util.List;
+
 
 @Entity(name = "numero_orden")
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
@@ -22,10 +22,12 @@ public class OrdenCompra {
     private BigInteger costo_unitario;
 
 
+    @JsonManagedReference
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "id_article", referencedColumnName = "id_article")
     private Articles articles;
 
+    @JsonManagedReference
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "unidades_medida_id", referencedColumnName = "unidades_medida_id")
     private UnidadesMedidas unidadesMedidas;
